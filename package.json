@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/kasimirjs/kasi-editor#readme",
   "dependencies": {
+    "@kasimirjs/embed": "^1.0.6",
     "reflect-metadata": "^0.1"
   },
   "devDependencies": {
