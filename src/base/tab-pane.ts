@@ -1,5 +1,5 @@
 
-import {KaCustomFragment, template} from "@kasimirjs/embed";
+import {KaCustomFragment, KaScope, template} from "@kasimirjs/embed";
 
 
 // language=html
@@ -7,13 +7,15 @@ const html = `
  <div>
     <ul class="nav nav-tabs">
       <li class="nav-item" ka.for="let tabName in tabs">
-        <a class="nav-link active" ka.on.click="$scope.selectedTabName = tabName" aria-current="page">[[ tabName ]]</a>
+        <a class="nav-link" ka.classlist.active="selectedTabName === tabName" ka.on.click="$scope.selectedTabName = tabName" aria-current="page" href="javascript:void(0)">[[ tabName ]]</a>
       </li>
     </ul>
-    <div ka.for="let curTabName in tabs">
-        
-        <ka-use ka.if="curTabName === selectedTabName" ka.use="tabs[curTabName]"></ka-use>
-    </div>
+     <div class="p-3 border">
+         <div ka.for="let curTabName in tabs">
+             <ka-use ka.if="curTabName === selectedTabName" ka.use="tabs[curTabName]" ka.scope="targetScope"></ka-use>
+         </div>
+     </div>
+    
 </div>
 `
 type KitTabs = {
@@ -22,16 +24,20 @@ type KitTabs = {
 @template(html)
 export class KitTabPane extends KaCustomFragment {
 
-    selectedTabName: string
-
     constructor(
         public tabs : KitTabs
     ) {
         super();
 
-        this.init({
+        let scope = this.init({
+            targetScope: null,
             tabs,
             selectedTabName : Object.keys(tabs)[0]
         })
+    }
+
+    public setScope(scope: KaScope) {
+        // Override default behaviou and pass scope to next
+        this.__scope["targetScope"] = scope;
     }
 }
