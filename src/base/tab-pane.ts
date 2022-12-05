@@ -7,7 +7,7 @@ const html = `
  <div>
     <ul class="nav nav-tabs">
       <li class="nav-item" ka.for="let tabName in tabs">
-        <a class="nav-link" ka.classlist.active="selectedTabName === tabName" ka.on.click="$scope.selectedTabName = tabName" aria-current="page" href="javascript:void(0)">[[ tabName ]]</a>
+        <a class="nav-link" ka.classlist.fw-bold="selectedTabName === tabName" ka.classlist.active="selectedTabName === tabName" ka.on.click="$scope.selectedTabName = tabName" aria-current="page" href="javascript:void(0)">[[ tabName ]]</a>
       </li>
     </ul>
      <div class="p-3 border">
@@ -38,6 +38,6 @@ export class KitTabPane extends KaCustomFragment {
 
     public setScope(scope: KaScope) {
         // Override default behaviou and pass scope to next
-        this.__scope["targetScope"] = scope;
+        this.scope["targetScope"] = scope;
     }
 }
