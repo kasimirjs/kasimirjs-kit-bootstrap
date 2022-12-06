@@ -1,13 +1,11 @@
 {
   "name": "@kasimirjs/kit-bootstrap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+
   "directories": {
     "doc": "docs",
     "lib": "lib"
