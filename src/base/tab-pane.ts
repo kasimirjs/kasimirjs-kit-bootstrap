@@ -12,7 +12,9 @@ const html = `
     </ul>
      <div class="p-3 border">
          <div ka.for="let curTabName in tabs">
-             <ka-use ka.if="curTabName === selectedTabName" ka.use="tabs[curTabName]" ka.scope="targetScope"></ka-use>
+             <div ka.if="curTabName === selectedTabName" >
+                 <div ka.use="tabs[curTabName]" ka.scope="targetScope"></div>
+             </div>
          </div>
      </div>
     
