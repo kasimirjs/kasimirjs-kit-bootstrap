@@ -1,9 +1,9 @@
 {
   "name": "@kasimirjs/kit-bootstrap",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
 
   "directories": {
@@ -14,9 +14,8 @@
     "/dist"
   ],
   "scripts": {
-    "make.mjs": "tsc -d && mv dist/index.js dist/index.mjs",
-    "make.cjs": "tsc -m commonjs",
-    "build": "npm run make.mjs && npm run make.cjs",
+    "make.mjs": "tsc -d ",
+    "build": "npm run make.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
