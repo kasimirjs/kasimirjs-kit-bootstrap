@@ -43,7 +43,7 @@ export class NavbarWrapper extends KaCustomWrapper {
                 }
             },
             $on: {
-                change: (e) => {
+                change: (e : any) => {
 
                 }
             }
