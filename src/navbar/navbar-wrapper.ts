@@ -1,5 +1,5 @@
 // language=HTML
-import {ka_session_storage, KaCustomWrapper, template} from "@kasimirjs/embed";
+import {ka_session_storage, KaCustomWrapper, KaScope, template} from "@kasimirjs/embed";
 
 const tpl = `
 
@@ -33,7 +33,7 @@ export class NavbarWrapper extends KaCustomWrapper {
             config = new NavbarWrapperConfig();
 
         let state = ka_session_storage({active: false}, "switcher-element");
-        let scope = this.init({
+        let scope : KaScope = this.init({
             state: state,
             config: config,
             $fn: {
