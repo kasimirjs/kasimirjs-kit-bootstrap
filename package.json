@@ -1,6 +1,6 @@
 {
   "name": "@kasimirjs/kit-bootstrap",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/kasimirjs/kasi-editor#readme",
   "dependencies": {
-    "@kasimirjs/embed": "^1.1.5",
+    "@kasimirjs/embed": "^1.1.6",
     "reflect-metadata": "*"
   },
   "devDependencies": {
