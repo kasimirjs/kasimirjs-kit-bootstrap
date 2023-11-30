@@ -31,12 +31,30 @@ export class FlexModalConfig {
 
 export class FlexModal extends KaCustomModal {
 
+    /**
+     *
+     * Example:
+     * const m = new FlexModal("My Title", "<div>[[message]]</div>", [`<button ka.on.click="$fn.resolve()">Save</button>`]);
+     * let result = await m.show({message: "Hello World"});
+     * console.log(result.message);
+     *
+     * @param title
+     * @param body
+     * @param buttons
+     * @param initScope
+     */
     constructor(title : string, body : string, buttons : string[], protected initScope : { } = {}) {
         super();
         this.__html = html.replace("%%title%%", title).replace("%%body%%", body).replace("%%buttons%%", buttons.join(" "));
     }
 
 
+    /**
+     *
+     *
+     * @param scope     Optional Scope to pass to the modal
+     * @param parser    Optional Callback to parse the return value before resolving the promise
+     */
     public async show(scope : any = {},parser = (scope : any) : any => {return scope}): Promise<any> {
         let defaultScope = this.initScope;
 
