@@ -2,6 +2,7 @@ version: '1.0'
 
 
 coder:
+    example_dir: ./examples/
     include:
         - ./src/
         - ./docs/

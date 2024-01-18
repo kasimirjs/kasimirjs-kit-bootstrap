@@ -11,7 +11,9 @@
     "lib": "lib"
   },
   "files": [
-    "/dist"
+    "/dist",
+    ".brix.yml",
+    "/examples"
   ],
   "scripts": {
     "make.mjs": "tsc -d ",

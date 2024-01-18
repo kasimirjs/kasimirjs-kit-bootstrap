@@ -24,8 +24,6 @@ type KitFormInputConfig = {
     type? : string,
     id? : string,
     readonly?: boolean,
-
-
 }
 
 const KitFormInputDefaults = {

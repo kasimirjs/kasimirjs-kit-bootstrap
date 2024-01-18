@@ -1,4 +1,4 @@
-import {KaCustomModal} from "@kasimirjs/embed";
+import {KaCustomModal, KaScope} from "@kasimirjs/embed";
 
 
 
@@ -14,7 +14,7 @@ const html = `
                 %%body%%
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" ka.on.click="$fn.close()">Close</button>
+               
                 %%buttons%%
             </div>
         </div>
@@ -43,8 +43,10 @@ export class FlexModal extends KaCustomModal {
      * @param buttons
      * @param initScope
      */
-    constructor(title : string, body : string, buttons : string[], protected initScope : { } = {}) {
+    constructor(title : string, body : string, buttons : string[]|null = null, protected initScope : { } = {}) {
         super();
+        if (buttons === null)
+            buttons = [`<button type="button" class="btn btn-secondary" ka.on.click="$fn.close()">Close</button>`]; // Add close button if no buttons are present.
         this.__html = html.replace("%%title%%", title).replace("%%body%%", body).replace("%%buttons%%", buttons.join(" "));
     }
 
@@ -71,7 +73,7 @@ export class FlexModal extends KaCustomModal {
                 }
             }
 
-        });
+        }) as KaScope;
         return super.show();
     }
 }
