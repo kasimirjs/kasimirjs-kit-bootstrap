@@ -64,16 +64,14 @@ export class FlexModal extends KaCustomModal {
         let myScope = this.init({
             ...defaultScope,
             ...scope,
-            $fn: {
-                async close() {
-                    instance.resolve(null);
-                },
-                async resolve() {
-                    instance.resolve(parser(myScope));
-                }
-            }
 
         }) as KaScope;
+        myScope.$fn['close'] = () => {
+            this.resolve(null);
+        }
+        myScope.$fn['resolve'] = () => {
+            this.resolve(parser(myScope));
+        }
         return super.show();
     }
 }

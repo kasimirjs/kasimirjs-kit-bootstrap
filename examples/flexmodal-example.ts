@@ -36,13 +36,24 @@ const html = `
         <tr ka.for="let row in $scope.data.users">
             <td>[[row.name]]</td>
         </tr>
+        <button class="btn btn-primary" ka.on.click="$fn.addRow()">Add Row</button>
     </table>`;
 export class UserRowModal extends FlexModal {
     constructor() {
+        let initscope = {
+            data: {users: []},
+            $fn: {
+                addRow: () => {
+                    this.scope.data.users.push({name: "New User"});
+                    this.scope.render();
+                }
+
+            }
+        }
         super("User List", html, [
             "<button class='btn btn-secondary' ka.on.click=\"$fn.close()\">Close</button>",
             "<button class='btn btn-primary' ka.on.click=\"$fn.resolve()\">Save</button>"
-        ], {data: []});
+        ], initscope);
     }
 
     public async show(data : any): Promise<any> {
