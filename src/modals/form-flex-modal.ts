@@ -34,7 +34,7 @@ export class FormFlexModal extends FlexModal {
 
 
     constructor(title : string, forms : FormFlexModalFormConfig[] = []) {
-        super(config.title, html, []);
+        super(title, html, []);
     }
 
 
