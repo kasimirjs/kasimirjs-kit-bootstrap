@@ -66,6 +66,8 @@ export class FlexModal extends KaCustomModal {
             ...scope,
 
         }) as KaScope;
+        if (!myScope.$fn)
+            myScope.$fn = {};
         myScope.$fn['close'] = () => {
             this.resolve(null);
         }
