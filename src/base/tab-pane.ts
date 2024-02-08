@@ -1,10 +1,10 @@
 
-import {KaCustomFragment, KaScope, template} from "@kasimirjs/embed";
+import {customElement, KaCustomElement, KaCustomFragment, KaScope, template} from "@kasimirjs/embed";
 
 
 // language=html
 const html = `
- <div>
+ <div class="h-100">
     <ul class="nav nav-tabs">
       <li class="nav-item" ka.for="let tabName in tabs">
         <a class="nav-link" ka.classlist.fw-bold="selectedTabName === tabName" ka.classlist.active="selectedTabName === tabName" ka.on.click="$scope.selectedTabName = tabName" aria-current="page" href="javascript:void(0)">[[ tabName ]]</a>
@@ -23,14 +23,15 @@ const html = `
 type KitTabs = {
     [tabName : string]: HTMLElement | KaCustomFragment
 }
+
+@customElement()
 @template(html)
-export class KitTabPane extends KaCustomFragment {
+export class KitTabPane extends KaCustomElement {
 
     constructor(
         public tabs : KitTabs
     ) {
         super();
-
         let scope = this.init({
             targetScope: null,
             tabs,
