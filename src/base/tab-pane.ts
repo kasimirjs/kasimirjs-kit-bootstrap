@@ -13,7 +13,7 @@ const html = `
      <div class="p-3 border">
          <div ka.for="let curTabName in tabs">
              <div ka.if="curTabName === selectedTabName" >
-                 <div ka.use="tabs[curTabName]" ka.scope="targetScope"></div>
+                 <div ka.content="tabs[curTabName]"></div>
              </div>
          </div>
      </div>
@@ -38,6 +38,13 @@ export class KitTabPane extends KaCustomElement {
             selectedTabName : Object.keys(tabs)[0]
         })
     }
+
+    public updateTabs(tabs : KitTabs) {
+        this.scope.selectedTabName = Object.keys(tabs)[0];
+        this.scope.tabs = tabs;
+        this.scope.render();
+    }
+
 
     public setScope(scope: KaScope) {
         // Override default behaviou and pass scope to next
